@@ -3,7 +3,7 @@ import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 )
+const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 const renderer = new THREE.WebGL1Renderer({
   canvas: document.querySelector('#background'),
 });
@@ -33,6 +33,23 @@ const lighthelper = new THREE.PointLightHelper(pointLight);
 scene.add(lighthelper, gridHelper)
 
 const controls = new OrbitControls(camera, renderer.domElement)
+
+function addObjects(){
+  const geometry = new THREE.SphereGeometry(0.25, 24,24);
+  const material = new THREE.MeshStandardMaterial( {color: 0xffffff});
+  const obj = new THREE.Mesh( geometry, material);
+
+  const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread( 100 ));
+
+  obj.position.set(x, y, z);
+  scene.add(obj)
+
+}
+
+Array(30).fill().forEach(addObjects)
+
+const backgroundTexture = new THREE.TextureLoader().load('ocean.jpg')
+scene.background = backgroundTexture;
 
 function animate(){
   requestAnimationFrame(animate);
