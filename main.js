@@ -48,7 +48,7 @@ function addObjects(){
 
 Array(30).fill().forEach(addObjects)
 
-const backgroundTexture = new THREE.TextureLoader().load('ocean.jpg')
+const backgroundTexture = new THREE.TextureLoader().load('background-unsplash.jpg')
 scene.background = backgroundTexture;
 
 function animate(){
@@ -64,3 +64,14 @@ function animate(){
 }
 
 animate()
+
+
+const bellaTexture = new THREE.TextureLoader().load('bella.jpg');
+
+const bella = new THREE.Mesh(
+  new THREE.BoxGeometry(4,4,4),
+  new THREE.MeshBasicMaterial({ map: bellaTexture })
+);
+
+scene.add(bella);
+
