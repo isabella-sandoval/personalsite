@@ -21,6 +21,9 @@ const torus = new THREE.Mesh(geometry, material);
 
 scene.add(torus)
 
+torus.position.z = 30;
+torus.position.setX(-10);
+
 const pointLight = new THREE.PointLight(0xffffff);
 pointLight.position.set(5, 5, 5);
 
@@ -56,7 +59,6 @@ function animate(){
   torus.rotation.x += 0.01;
   torus.rotation.y += 0.005;
   torus.rotation.z += 0.01;
-
   controls.update();
 
   renderer.render(scene, camera);
@@ -69,9 +71,44 @@ animate()
 const bellaTexture = new THREE.TextureLoader().load('bella.jpg');
 
 const bella = new THREE.Mesh(
-  new THREE.BoxGeometry(4,4,4),
+  new THREE.BoxGeometry(10,10,10),
   new THREE.MeshBasicMaterial({ map: bellaTexture })
 );
 
 scene.add(bella);
 
+
+const moonTexture = new THREE.TextureLoader().load('splash.jpg');
+const normalTexture = new THREE.TextureLoader().load('splash.jpg');
+
+const moon = new THREE.Mesh(
+  new THREE.SphereGeometry(3, 32, 32),
+  new THREE.MeshStandardMaterial({
+    map: moonTexture,
+    normalMap: normalTexture,
+  })
+);
+
+scene.add(moon);
+
+moon.position.z = 30;
+moon.position.setX(10);
+
+
+const conegeometry = new THREE.ConeGeometry( 5, 20, 32 );
+const conematerial = new THREE.MeshBasicMaterial( {color: 0xffff00} );
+const cone = new THREE.Mesh( conegeometry, conematerial );
+scene.add( cone );
+
+
+cone.position.z = 50;
+cone.position.setX(15);
+
+
+const cylindergeometry = new THREE.CylinderGeometry( 5, 5, 20, 32 );
+const cylindermaterial = new THREE.MeshBasicMaterial( {color: 0xffff00} );
+const cylinder = new THREE.Mesh( cylindergeometry, cylindermaterial );
+scene.add( cylinder );
+
+cylinder.position.z = -30;
+cylinder.position.setX(-30);
