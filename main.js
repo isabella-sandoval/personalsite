@@ -112,3 +112,4 @@ scene.add( cylinder );
 
 cylinder.position.z = -30;
 cylinder.position.setX(-30);
+
