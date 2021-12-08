@@ -1,4 +1,3 @@
-
 canvas{
   position: fixed;
   top: 0;
@@ -7,7 +6,6 @@ canvas{
 
 :root {
 	--dark-bg: rgba(15, 15, 15, 0.95);
-	
 	font-weight: 400;
 	font-style: normal;
 }
@@ -15,34 +13,50 @@ canvas{
   
 main {
 	width: 100vw;
-	color: white;
+	color: whitesmoke;
 	z-index: 99;
 	position: absolute;
-	width: 100%;
 	margin: 0px auto;
 	padding: 120px 0px;
-
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
 	
 }
 
 h1 {
-	font-weight: 700;
+	font-weight: 900;
 	font-family: 'Dancing Script', cursive;
-font-family: 'Josefin Slab', serif;
-font-family: 'Monoton', cursive;
+	font-family: 'Josefin Slab', serif;
+	font-family: 'Monoton', cursive;
 
+}
+
+h2{
+	color:rgba(255, 255, 0, .5);
+}
+
+h3{
+	color:rgba(255, 255, 0, .5);
 }
 
 
 header {
 	background: var(--dark-bg);
-	grid-column: 2 / span 5;
+	grid-column: 2 / 8;
 	font-size: 2.5rem;
 	padding: 2rem;
 	margin-bottom: 3rem;
 	
+}
+
+
+a{
+	color:rgba(255, 255, 0, .5);
+	text-decoration: none;
+}
+
+.miniheader{
+	text-align: center;
 }
 
 section {
@@ -51,6 +65,6 @@ section {
 	background: var(--dark-bg);
 	font-size: 1.25rem;
 	line-height: 1.5;
-	margin-bottom: var(--spacing);
+	margin-bottom: 1.5rem;
 }
 
